@@ -271,6 +271,7 @@ p { margin: 0 0 1em; }
   padding: 6px 12px; border-radius: 999px; font-size: 14.5px;
   background: var(--bg-alt); border: 1px solid var(--line); color: var(--text);
 }
+.skill-group:last-child:nth-child(odd) { grid-column: 1 / -1; }
 @media (max-width: 760px) { .skill-groups { grid-template-columns: 1fr; } }
 
 /* ---------- Certifications, education, clients ---------- */
