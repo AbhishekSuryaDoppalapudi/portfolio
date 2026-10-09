@@ -236,7 +236,6 @@ p { margin: 0 0 1em; }
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 26px; box-shadow: var(--shadow); transition: transform .2s, border-color .2s;
 }
-.card:hover { transform: translateY(-3px); border-color: var(--accent); }
 .card-tag { font-size: 12.5px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; color: var(--accent-strong); margin-bottom: 10px; }
 .card h3 { font-size: 21px; margin-bottom: 10px; }
 .card p:last-child { color: var(--muted); font-size: 15.5px; margin: 0; }
@@ -245,10 +244,10 @@ p { margin: 0 0 1em; }
 
 /* ---------- Experience timeline ---------- */
 .timeline { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
-.role { position: relative; padding: 0 0 44px 32px; }
-.role:last-child { padding-bottom: 0; }
+.role { position: relative; padding: 16px 20px 18px 32px; margin-bottom: 22px; }
+.role:last-child { margin-bottom: 0; }
 .role::before {
-  content: ""; position: absolute; left: -8px; top: 6px; width: 14px; height: 14px;
+  content: ""; position: absolute; left: -8px; top: 22px; width: 14px; height: 14px;
   border-radius: 50%; background: var(--bg); border: 3px solid var(--accent);
 }
 .role-head { margin-bottom: 12px; }
@@ -361,4 +360,60 @@ p { margin: 0 0 1em; }
   .help-grid { grid-template-columns: 1fr; }
   .intro-head .btn { width: 100%; }
   .intro-ask { padding: 22px; }
+}
+
+/* ---------- Hover highlights (mouse devices only) ---------- */
+.stats li, .help-grid li, .card, .skill-group, .certs li, .clients li, .about-card, .intro-ask, .role, .chips li {
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, background-color .22s ease, color .22s ease;
+}
+.role { border-radius: 0 12px 12px 0; }
+.role::before { transition: background-color .22s ease, box-shadow .22s ease, transform .22s ease; }
+.chips li { cursor: default; }
+
+@media (hover: hover) {
+  /* Boxes lift, get a gold edge and a soft glow */
+  .stats li:hover, .help-grid li:hover, .card:hover, .skill-group:hover,
+  .clients li:hover, .about-card:hover, .intro-ask:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent), 0 14px 32px -12px var(--glow-b), 0 10px 28px -14px var(--glow-a), var(--shadow);
+  }
+  /* Keep each box's coloured accent edge while hovering */
+  .help-grid li:hover { border-left-color: var(--tech); }
+  .intro-ask:hover { border-top-color: var(--accent); }
+
+  /* Stat numbers and box headings pick up the accent */
+  .stats li:hover strong { color: var(--tech); }
+  .card:hover h3, .help-grid li:hover h3, .skill-group:hover h3 { color: var(--accent-strong); }
+
+  /* Certification rows slide right with a thicker gold bar */
+  .certs li:hover {
+    transform: translateX(6px);
+    border-color: var(--accent); border-left-width: 6px;
+    box-shadow: var(--shadow);
+  }
+  .certs li:hover .cert-name { color: var(--accent-strong); }
+
+  /* Skill chips turn gold */
+  .chips li:hover {
+    background-color: var(--accent-soft); border-color: var(--accent); color: var(--accent-strong);
+    transform: translateY(-2px);
+  }
+
+  /* Experience: highlight the role and fill its timeline dot */
+  .role:hover { background-color: var(--surface); box-shadow: var(--shadow); }
+  .role:hover::before { background-color: var(--accent); transform: scale(1.2); box-shadow: 0 0 0 5px var(--accent-soft); }
+  .role:hover h3 { color: var(--accent-strong); }
+
+  /* Headshot ring glows */
+  .about-card:hover .headshot { box-shadow: 0 0 0 3px var(--accent), var(--shadow); }
+}
+
+/* Keyboard users get the same highlight on links inside boxes */
+.card:focus-within, .skill-group:focus-within, .intro-ask:focus-within { border-color: var(--accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  .stats li, .help-grid li, .card, .skill-group, .certs li, .clients li, .about-card, .intro-ask, .role, .chips li, .role::before {
+    transition: none; transform: none !important;
+  }
 }
