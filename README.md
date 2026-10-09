@@ -13,7 +13,9 @@ Open `index.html` in a browser.
 
 ## Publish with GitHub Pages
 
-In the repository on GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch**, branch `main`, folder `/ (root)`. The site is then served at `https://abhisheksuryadoppalapudi.github.io/WEB_DESIGNING/`.
+Live at **https://abhisheksuryadoppalapudi.github.io/portfolio/**.
+
+GitHub Pages publishes the `Final` branch, folder `/ (root)` (**Settings → Pages**). All changes go to `Final`; a push updates the live site within a minute or two.
 
 ## Updating content
 
