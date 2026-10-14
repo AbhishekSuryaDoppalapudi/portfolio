@@ -240,7 +240,9 @@ p { margin: 0 0 1em; }
 .card h3 { font-size: 21px; margin-bottom: 10px; }
 .card p:last-child { color: var(--muted); font-size: 15.5px; margin: 0; }
 .pilot-card { border-left: 4px solid var(--accent); }
-.pilot-action { margin: 16px 0 0; }
+.pilot-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+@media (max-width: 640px) { .pilot-cards { grid-template-columns: 1fr; } }
+.pilot-action { margin: 20px 0 0; }
 .nda {
   width: min(520px, calc(100vw - 32px)); max-height: calc(100vh - 32px); overflow: auto;
   padding: 28px; border: 1px solid var(--line); border-radius: var(--radius);
