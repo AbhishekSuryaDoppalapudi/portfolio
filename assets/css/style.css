@@ -278,6 +278,34 @@ p { margin: 0 0 1em; }
 .role li { margin-bottom: 8px; }
 .role li::marker { color: var(--accent); }
 
+/* Roadmap layout: chronological stops beside a map of India */
+.road-intro { color: var(--muted); margin: -12px 0 28px; }
+.road-layout { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 40px; align-items: start; }
+.roadmap { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
+.stop-year { display: inline-block; margin: 0 0 8px; padding: 3px 12px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-strong); font-size: 13px; font-weight: 700; letter-spacing: .4px; }
+.role-loc { margin: 6px 0 0; font-size: 14px; font-weight: 600; color: var(--accent-strong); }
+.map-card { position: sticky; top: 96px; padding: 22px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.map-card h3 { font-size: 20px; margin-bottom: 12px; }
+.india-map { display: block; width: 100%; max-width: 360px; height: auto; margin: 0 auto; }
+.map-base path { fill: var(--bg-alt); stroke: var(--line); stroke-width: .6; }
+.india-map .hl { stroke: var(--surface); stroke-width: .8; }
+.hl-tel { fill: var(--tech); }
+.hl-kar { fill: var(--accent); }
+.pin circle { fill: var(--navy); stroke: #fff; stroke-width: 1.5; }
+.pin .pulse { fill: none; stroke: var(--navy); stroke-width: 1.5; transform-box: fill-box; transform-origin: center; animation: pin-pulse 2.2s ease-out infinite; }
+@keyframes pin-pulse { from { transform: scale(1); opacity: .7; } to { transform: scale(3.2); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .pin .pulse { animation: none; opacity: 0; } }
+.pin-label { font: 600 12px var(--sans); fill: var(--text); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; }
+.map-legend { list-style: none; margin: 16px 0 0; padding: 0; font-size: 14.5px; }
+.map-legend li { display: flex; gap: 8px; align-items: baseline; margin-bottom: 8px; }
+.dot { flex: none; width: 12px; height: 12px; border-radius: 50%; transform: translateY(1px); }
+.dot-tel { background: var(--tech); }
+.dot-kar { background: var(--accent); }
+@media (max-width: 900px) {
+  .road-layout { grid-template-columns: 1fr; }
+  .map-card { position: static; order: -1; }
+}
+
 /* ---------- Skills ---------- */
 .skill-groups { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .skill-group {
