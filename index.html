@@ -612,7 +612,7 @@
       });
     })();
 
-    // NDA gate: asks every time the Pilot Projects section is viewed; nothing is remembered between visits
+    // NDA gate: the form opens on click; nothing is remembered between visits, so details are locked on every load
     const PILOT = [
       { label: 'Pilot · Career tech', title: 'Job Hunter', badge: 'Phase 2 completed',
         desc: 'A job-search assistant that finds and prioritises relevant roles. It is the early pilot of a larger product concept I plan to develop further.' },
@@ -645,30 +645,7 @@
       nda.showModal();
     };
     if (typeof nda.showModal === 'function') {
-      // ask only once scrolling has settled with the section in view, so passing through it
-      // (for example clicking Contact in the menu) does not trigger the form
-      const pilotInView = () => {
-        const r = pilot.getBoundingClientRect(), vh = window.innerHeight;
-        const visible = Math.min(r.bottom, vh) - Math.max(r.top, 0);
-        return visible > Math.min(r.height, vh) * 0.7;
-      };
-      // a menu link to another section (such as Contact) must never trigger the form on the way
-      let skipNav = false;
-      document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', () => {
-        skipNav = a.getAttribute('href') !== '#pilot';
-      }));
-      ['wheel', 'touchstart', 'keydown'].forEach(ev => window.addEventListener(ev, () => { skipNav = false; }, { passive: true }));
-      let settle = null;
-      const schedule = () => {
-        clearTimeout(settle);
-        settle = setTimeout(() => { if (!skipNav && pilotInView()) openNda(); }, 450);
-      };
-      window.addEventListener('scroll', schedule, { passive: true });
-      window.addEventListener('load', schedule);
-      // closing without signing keeps everything locked and sends the visitor back up; viewing it again asks again
-      nda.addEventListener('close', () => {
-        if (!accepted) document.getElementById('certifications').scrollIntoView({ behavior: 'smooth' });
-      });
+      // the form opens only when the visitor clicks "Sign NDA to view"; the details stay locked until then
       document.getElementById('nda-open').addEventListener('click', openNda);
       document.getElementById('nda-close').addEventListener('click', () => nda.close());
       document.getElementById('nda-form').addEventListener('submit', e => {
