@@ -312,6 +312,7 @@
         </ul>
         <label>Full name<input type="text" id="nda-name" required autocomplete="name"></label>
         <label>Email<input type="email" id="nda-email" required autocomplete="email"></label>
+        <label>Contact number<input type="tel" id="nda-phone" required autocomplete="tel" placeholder="+91 98765 43210"></label>
         <label>Company / organisation<input type="text" id="nda-company" autocomplete="organization"></label>
         <label class="nda-check"><input type="checkbox" id="nda-agree" required> I have read and agree to the terms above.</label>
         <div class="nda-actions">
@@ -319,6 +320,15 @@
           <button type="button" class="btn btn-ghost" id="nda-close">Not now</button>
         </div>
       </form>
+      <div id="nda-done" hidden>
+        <h2>One last step</h2>
+        <p class="nda-intro">Thank you. Please send your acceptance so Abhishek receives it. Your details are already filled in; just press send.</p>
+        <div class="nda-actions">
+          <a class="btn btn-primary" id="nda-wa" target="_blank" rel="noopener noreferrer">Send via WhatsApp</a>
+          <a class="btn btn-ghost" id="nda-mail" target="_blank" rel="noopener noreferrer">Send via Gmail</a>
+          <button type="button" class="btn btn-ghost" id="nda-done-close">Close</button>
+        </div>
+      </div>
     </dialog>
 
     <!-- Contact -->
@@ -379,7 +389,13 @@
     const pilot = document.getElementById('pilot');
     const seen = () => { try { return sessionStorage.getItem('ndaSeen') === '1'; } catch (e) { return false; } };
     const markSeen = () => { try { sessionStorage.setItem('ndaSeen', '1'); } catch (e) {} };
-    const openNda = () => { if (!nda.open) { markSeen(); nda.showModal(); } };
+    const openNda = () => {
+      if (nda.open) return;
+      document.getElementById('nda-form').hidden = false;
+      document.getElementById('nda-done').hidden = true;
+      markSeen();
+      nda.showModal();
+    };
     if (typeof nda.showModal === 'function') {
       if ('IntersectionObserver' in window) {
         const io = new IntersectionObserver(entries => {
@@ -394,11 +410,16 @@
         const v = id => document.getElementById(id).value.trim();
         const body = 'I agree to the Non-Disclosure Agreement for Abhishek\'s Pilot Projects '
           + '(confidential; no copying, sharing or other use; two years from ' + new Date().toISOString().slice(0, 10) + ').\n\n'
-          + 'Name: ' + v('nda-name') + '\nEmail: ' + v('nda-email') + '\nCompany: ' + v('nda-company');
-        window.location.href = 'mailto:surya.abhishek111@gmail.com?subject=' + encodeURIComponent('NDA acceptance - Pilot Projects')
-          + '&body=' + encodeURIComponent(body);
-        nda.close();
+          + 'Name: ' + v('nda-name') + '\nEmail: ' + v('nda-email') + '\nContact number: ' + v('nda-phone')
+          + '\nCompany: ' + v('nda-company');
+        const subject = 'NDA acceptance - Pilot Projects';
+        document.getElementById('nda-wa').href = 'https://wa.me/918519911026?text=' + encodeURIComponent(subject + '\n\n' + body);
+        document.getElementById('nda-mail').href = 'https://mail.google.com/mail/?view=cm&fs=1&to=surya.abhishek111@gmail.com'
+          + '&su=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        document.getElementById('nda-form').hidden = true;
+        document.getElementById('nda-done').hidden = false;
       });
+      document.getElementById('nda-done-close').addEventListener('click', () => nda.close());
     }
   </script>
 </body>

@@ -253,7 +253,7 @@ p { margin: 0 0 1em; }
 .nda-intro { color: var(--muted); font-size: 15px; margin: 0 0 12px; }
 .nda-terms { margin: 0 0 16px; padding-left: 20px; font-size: 14.5px; color: var(--text); }
 .nda label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
-.nda input[type="text"], .nda input[type="email"] {
+.nda input[type="text"], .nda input[type="email"], .nda input[type="tel"] {
   display: block; width: 100%; margin-top: 4px; padding: 10px 12px; font: inherit;
   border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--text);
 }
