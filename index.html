@@ -29,10 +29,10 @@
         <li><a href="#profile">Profile</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#work">Selected work</a></li>
-        <li><a href="#pilot">Pilot projects</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#pilot">Pilot projects</a></li>
         <li><a class="nav-cta" href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -164,40 +164,6 @@
       </div>
     </section>
 
-    <!-- Pilot projects -->
-    <section class="section" id="pilot">
-      <div class="container narrow">
-        <h2 class="section-title">Abhishek's Pilot Projects</h2>
-        <article class="card pilot-card">
-          <p class="card-tag">In development · Pilot</p>
-          <h3>Job Hunter</h3>
-          <p>A job-search assistant that finds and prioritises relevant roles. It is the early pilot of a larger product concept I plan to develop further.</p>
-          <p class="pilot-action"><button type="button" class="btn btn-ghost" id="nda-open">Sign NDA to request details</button></p>
-        </article>
-      </div>
-    </section>
-
-    <!-- NDA form (opens when the Pilot Projects section is viewed) -->
-    <dialog class="nda" id="nda" aria-labelledby="nda-title">
-      <form id="nda-form" method="dialog">
-        <h2 id="nda-title">Non-Disclosure Agreement</h2>
-        <p class="nda-intro">Abhishek's Pilot Projects describe early-stage, unreleased work. Please confirm the terms below and share your details before asking for more.</p>
-        <ul class="nda-terms">
-          <li>Anything shared with you about these projects is confidential.</li>
-          <li>You will not copy, share or use it for any purpose other than evaluating it with Abhishek.</li>
-          <li>The obligation continues for two years from today.</li>
-        </ul>
-        <label>Full name<input type="text" id="nda-name" required autocomplete="name"></label>
-        <label>Email<input type="email" id="nda-email" required autocomplete="email"></label>
-        <label>Company / organisation<input type="text" id="nda-company" autocomplete="organization"></label>
-        <label class="nda-check"><input type="checkbox" id="nda-agree" required> I have read and agree to the terms above.</label>
-        <div class="nda-actions">
-          <button type="submit" class="btn btn-primary">Agree &amp; send</button>
-          <button type="button" class="btn btn-ghost" id="nda-close">Not now</button>
-        </div>
-      </form>
-    </dialog>
-
     <!-- Experience -->
     <section class="section" id="experience">
       <div class="container narrow">
@@ -313,6 +279,40 @@
         </ul>
       </div>
     </section>
+
+    <!-- Pilot projects -->
+    <section class="section alt" id="pilot">
+      <div class="container narrow">
+        <h2 class="section-title">Abhishek's Pilot Projects</h2>
+        <article class="card pilot-card">
+          <p class="card-tag">In development · Pilot</p>
+          <h3>Job Hunter</h3>
+          <p>A job-search assistant that finds and prioritises relevant roles. It is the early pilot of a larger product concept I plan to develop further.</p>
+          <p class="pilot-action"><button type="button" class="btn btn-ghost" id="nda-open">Sign NDA to request details</button></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- NDA form (opens when the Pilot Projects section is viewed) -->
+    <dialog class="nda" id="nda" aria-labelledby="nda-title">
+      <form id="nda-form" method="dialog">
+        <h2 id="nda-title">Non-Disclosure Agreement</h2>
+        <p class="nda-intro">Abhishek's Pilot Projects describe early-stage, unreleased work. Please confirm the terms below and share your details before asking for more.</p>
+        <ul class="nda-terms">
+          <li>Anything shared with you about these projects is confidential.</li>
+          <li>You will not copy, share or use it for any purpose other than evaluating it with Abhishek.</li>
+          <li>The obligation continues for two years from today.</li>
+        </ul>
+        <label>Full name<input type="text" id="nda-name" required autocomplete="name"></label>
+        <label>Email<input type="email" id="nda-email" required autocomplete="email"></label>
+        <label>Company / organisation<input type="text" id="nda-company" autocomplete="organization"></label>
+        <label class="nda-check"><input type="checkbox" id="nda-agree" required> I have read and agree to the terms above.</label>
+        <div class="nda-actions">
+          <button type="submit" class="btn btn-primary">Agree &amp; send</button>
+          <button type="button" class="btn btn-ghost" id="nda-close">Not now</button>
+        </div>
+      </form>
+    </dialog>
 
     <!-- Contact -->
     <section class="section contact" id="contact">
