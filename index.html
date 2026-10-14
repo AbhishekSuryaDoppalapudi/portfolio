@@ -591,10 +591,18 @@
     // Scroll reveal: content fades in as it enters the viewport
     (function () {
       if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      const sel = '.section-title, .help-grid li, .stats li, .intro-ask, .about-card, #about p, .cards .card, '
-        + '.pilot-row, .work-card, .roadmap .role, .map-card, .skill-group, .extra-skills li, .cert-card, .clients li, .edu, .contact .lead, .contact-link';
+      // every heading, paragraph, list item, card and figure on the page; when one sits inside another,
+      // only the outer block animates so text never animates twice
+      const sel = 'main h1, main h2, main h3, main h4, main p, main li, main figure, main article, main .skill-group, '
+        + 'main .map-card, main .about-card, main .intro-ask, main .contact-link, main .stats';
+      const skip = '.pilot-lock, .nda, .skill-tip';
       const vh = window.innerHeight;
-      const targets = [...document.querySelectorAll(sel)].filter(el => el.getBoundingClientRect().top > vh * 0.92 && !el.closest('#top'));
+      const all = [...document.querySelectorAll(sel)].filter(el => !el.closest(skip) && el.getClientRects().length);
+      const set = new Set(all);
+      const targets = all.filter(el => {
+        for (let a = el.parentElement; a; a = a.parentElement) if (set.has(a)) return false;
+        return el.getBoundingClientRect().top > vh * 0.92;
+      });
       const io = new IntersectionObserver(entries => {
         entries.forEach(en => {
           if (!en.isIntersecting) return;
@@ -604,10 +612,11 @@
           setTimeout(() => { el.classList.remove('rv-anim'); el.style.transitionDelay = ''; }, 1000);
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
-      targets.forEach((el, i) => {
+      targets.forEach(el => {
+        const sib = [...el.parentNode.children].indexOf(el);
         el.classList.add('rv', 'rv-anim');
-        if (el.matches('.pilot-row')) el.classList.add(([...el.parentNode.children].indexOf(el) % 2) ? 'rv-right' : 'rv-left');
-        el.style.transitionDelay = ((i % 4) * 70) + 'ms';
+        if (el.matches('.pilot-row')) el.classList.add(sib % 2 ? 'rv-right' : 'rv-left');
+        el.style.transitionDelay = (Math.min(sib, 5) * 70) + 'ms';
         io.observe(el);
       });
     })();
