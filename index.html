@@ -172,9 +172,31 @@
           <p class="card-tag">In development · Pilot</p>
           <h3>Job Hunter</h3>
           <p>A job-search assistant that finds and prioritises relevant roles. It is the early pilot of a larger product concept I plan to develop further.</p>
+          <p class="pilot-action"><button type="button" class="btn btn-ghost" id="nda-open">Sign NDA to request details</button></p>
         </article>
       </div>
     </section>
+
+    <!-- NDA form (opens when the Pilot Projects section is viewed) -->
+    <dialog class="nda" id="nda" aria-labelledby="nda-title">
+      <form id="nda-form" method="dialog">
+        <h2 id="nda-title">Non-Disclosure Agreement</h2>
+        <p class="nda-intro">Abhishek's Pilot Projects describe early-stage, unreleased work. Please confirm the terms below and share your details before asking for more.</p>
+        <ul class="nda-terms">
+          <li>Anything shared with you about these projects is confidential.</li>
+          <li>You will not copy, share or use it for any purpose other than evaluating it with Abhishek.</li>
+          <li>The obligation continues for two years from today.</li>
+        </ul>
+        <label>Full name<input type="text" id="nda-name" required autocomplete="name"></label>
+        <label>Email<input type="email" id="nda-email" required autocomplete="email"></label>
+        <label>Company / organisation<input type="text" id="nda-company" autocomplete="organization"></label>
+        <label class="nda-check"><input type="checkbox" id="nda-agree" required> I have read and agree to the terms above.</label>
+        <div class="nda-actions">
+          <button type="submit" class="btn btn-primary">Agree &amp; send</button>
+          <button type="button" class="btn btn-ghost" id="nda-close">Not now</button>
+        </div>
+      </form>
+    </dialog>
 
     <!-- Experience -->
     <section class="section" id="experience">
@@ -287,7 +309,7 @@
 
         <h2 class="section-title sub">Enterprise clients</h2>
         <ul class="clients">
-          <li>Agilent Technologies</li><li>Bayer</li><li>GE</li><li>GE Power</li><li>Siemens</li><li>McKesson</li>
+          <li>Agilent Technologies</li><li>Bayer</li><li>GE</li><li>GE Power</li><li>McKesson</li>
         </ul>
       </div>
     </section>
@@ -344,6 +366,33 @@
       if (e.target.tagName === 'A') { toggle.setAttribute('aria-expanded', 'false'); links.classList.remove('open'); }
     });
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // NDA form: opens when the Pilot Projects section comes into view (once per visit)
+    const nda = document.getElementById('nda');
+    const pilot = document.getElementById('pilot');
+    const seen = () => { try { return sessionStorage.getItem('ndaSeen') === '1'; } catch (e) { return false; } };
+    const markSeen = () => { try { sessionStorage.setItem('ndaSeen', '1'); } catch (e) {} };
+    const openNda = () => { if (!nda.open) { markSeen(); nda.showModal(); } };
+    if (typeof nda.showModal === 'function') {
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(entries => {
+          if (entries.some(en => en.isIntersecting) && !seen()) { openNda(); io.disconnect(); }
+        }, { threshold: 0.4 });
+        io.observe(pilot);
+      }
+      document.getElementById('nda-open').addEventListener('click', openNda);
+      document.getElementById('nda-close').addEventListener('click', () => nda.close());
+      document.getElementById('nda-form').addEventListener('submit', e => {
+        e.preventDefault();
+        const v = id => document.getElementById(id).value.trim();
+        const body = 'I agree to the Non-Disclosure Agreement for Abhishek\'s Pilot Projects '
+          + '(confidential; no copying, sharing or other use; two years from ' + new Date().toISOString().slice(0, 10) + ').\n\n'
+          + 'Name: ' + v('nda-name') + '\nEmail: ' + v('nda-email') + '\nCompany: ' + v('nda-company');
+        window.location.href = 'mailto:surya.abhishek111@gmail.com?subject=' + encodeURIComponent('NDA acceptance - Pilot Projects')
+          + '&body=' + encodeURIComponent(body);
+        nda.close();
+      });
+    }
   </script>
 </body>
 </html>
