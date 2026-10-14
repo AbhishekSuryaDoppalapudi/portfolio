@@ -239,6 +239,7 @@ p { margin: 0 0 1em; }
 .card-tag { font-size: 12.5px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; color: var(--accent-strong); margin-bottom: 10px; }
 .card h3 { font-size: 21px; margin-bottom: 10px; }
 .card p:last-child { color: var(--muted); font-size: 15.5px; margin: 0; }
+.pilot-card { border-left: 4px solid var(--accent); }
 @media (max-width: 980px) { .cards { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .cards { grid-template-columns: 1fr; } }
 
