@@ -15,6 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -31,6 +32,7 @@
         <li><a href="#work">Selected work</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#additional">Additional</a></li>
         <li><a href="#certifications">Certifications</a></li>
         <li><a href="#pilot">Pilot projects</a></li>
         <li><a class="nav-cta" href="#contact">Contact</a></li>
@@ -282,18 +284,69 @@
       </div>
     </section>
 
+    <!-- Additional skills -->
+    <section class="section" id="additional">
+      <div class="container narrow">
+        <h2 class="section-title">Additional Skills</h2>
+        <ul class="extra-skills">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5h4v14H4zM10 5h4v9h-4zM16 5h4v6h-4z"/></svg><span>Project management: milestones, risk and dependency tracking, and governance, backed by the ISB Certificate Programme in IT Project Management (2023).</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7v10M9.5 9.5h3.8a1.7 1.7 0 0 1 0 3.4h-2.6a1.7 1.7 0 0 0 0 3.4h3.8"/></svg><span>Budgeting: capacity planning and budget allocation across a multi-project portfolio.</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4h16v16H4zM8 12l3 3 5-6"/></svg><span>Software testing: As-Is/To-Be validation, UAT and defect tracking through delivery sign-off.</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zM4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><span>Database development: SAP HANA modelling, SQLScript and Snowflake data transformation.</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l9 5-9 5-9-5zM3 13l9 5 9-5M3 17.5l9 5 9-5"/></svg><span>Specialist courses: HANA XSA, SAP BI/BW, SAP HANA and Snowflake Master Class for Data Engineers.</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></svg><span>AI: Claude 101 and Claude Code 101 (Anthropic), and Generative AI Fundamentals (Databricks).</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg><span>Agile tracking: Jira Fundamentals badge (Atlassian).</span></li>
+        </ul>
+      </div>
+    </section>
+
     <!-- Certifications -->
-    <section class="section" id="certifications">
+    <section class="section alt" id="certifications">
       <div class="container narrow">
         <h2 class="section-title">Certifications</h2>
-        <ul class="certs">
-          <li><span class="cert-name">SnowPro Core Certification</span><span class="cert-meta">Snowflake · May 2026 (valid to May 2028) · Credential ID S151701-260519-COF</span></li>
-          <li><span class="cert-name">Claude 101 &amp; Claude Code 101</span><span class="cert-meta">Anthropic Claude Academy · Oct 2026</span></li>
-          <li><span class="cert-name">Generative AI Fundamentals (Academy Accreditation)</span><span class="cert-meta">Databricks · Mar 2026</span></li>
-          <li><span class="cert-name">Certificate Programme in IT Project Management</span><span class="cert-meta">ISB Executive Education · Nov 2023</span></li>
-          <li><span class="cert-name">Jira Fundamentals Badge</span><span class="cert-meta">Atlassian · Sep 2023</span></li>
-          <li class="in-progress"><span class="cert-name">AWS Cloud Fundamentals · UiPath RPA Fundamentals</span><span class="cert-meta">In progress</span></li>
-        </ul>
+        <div class="cert-grid">
+          <article class="cert-card" style="--cert:#29b5e8">
+            <p class="cert-issuer">Snowflake</p>
+            <h3>SnowPro Core Certification</h3>
+            <p class="cert-date">May 2026 · valid to May 2028 · Credential ID S151701-260519-COF</p>
+            <p class="cert-learn"><strong>What I learned:</strong> Snowflake architecture (storage and compute separated, virtual warehouses), loading and unloading data, secure data sharing, role-based access control, and tuning for performance and cost. It underpins the HANA-to-Snowflake migration work.</p>
+            <a class="cert-link" href="https://achieve.snowflake.com/93794e0c-ae45-447f-8896-71ecf6ae4f51" target="_blank" rel="noopener noreferrer">View certificate <span aria-hidden="true">&#8599;</span></a>
+          </article>
+          <article class="cert-card" style="--cert:#d97757">
+            <p class="cert-issuer">Anthropic</p>
+            <h3>Claude 101 &amp; Claude Code 101</h3>
+            <p class="cert-date">Oct 2026 · Claude Academy</p>
+            <p class="cert-learn"><strong>What I learned:</strong> Using Claude well for analysis and writing, and working with Claude Code as an agentic builder: planning, writing, testing and reviewing software. I applied it directly to my Job Hunter and Crypto Radar pilots.</p>
+            <a class="cert-link" href="https://academy.claude.com/verify/1703d849a8bb2d9ef1aa5f1ddd6a4614" target="_blank" rel="noopener noreferrer">View certificate <span aria-hidden="true">&#8599;</span></a>
+          </article>
+          <article class="cert-card" style="--cert:#ff3621">
+            <p class="cert-issuer">Databricks</p>
+            <h3>Generative AI Fundamentals</h3>
+            <p class="cert-date">Mar 2026 · Academy Accreditation</p>
+            <p class="cert-learn"><strong>What I learned:</strong> How large language models work, prompt engineering, retrieval-augmented generation, and the responsible-AI considerations for using generative AI on a data platform.</p>
+            <a class="cert-link" href="https://credentials.databricks.com/614c2eb0-f4bd-4567-bd6a-1bfd50562c48" target="_blank" rel="noopener noreferrer">View certificate <span aria-hidden="true">&#8599;</span></a>
+          </article>
+          <article class="cert-card" style="--cert:#7c5c14">
+            <p class="cert-issuer">ISB Executive Education</p>
+            <h3>Certificate Programme in IT Project Management</h3>
+            <p class="cert-date">Nov 2023</p>
+            <p class="cert-learn"><strong>What I learned:</strong> A structured approach to scope, schedule, cost and risk, plus stakeholder governance. It sharpened how I run delivery governance, escalation and capacity planning across a multi-project portfolio.</p>
+            <a class="cert-link" href="https://emeritus.org/in/" target="_blank" rel="noopener noreferrer">View certificate <span aria-hidden="true">&#8599;</span></a>
+          </article>
+          <article class="cert-card" style="--cert:#2684ff">
+            <p class="cert-issuer">Atlassian</p>
+            <h3>Jira Fundamentals Badge</h3>
+            <p class="cert-date">Sep 2023</p>
+            <p class="cert-learn"><strong>What I learned:</strong> Boards, issues and workflows, backlog and sprint tracking, and reporting, so that work, ownership and progress stay visible to the whole team.</p>
+            <a class="cert-link" href="https://university.atlassian.com/student/award/KhBXobpfVCxyTME5X7yaWeC8" target="_blank" rel="noopener noreferrer">View certificate <span aria-hidden="true">&#8599;</span></a>
+          </article>
+          <article class="cert-card in-progress" style="--cert:#8a94a6">
+            <p class="cert-issuer">In progress</p>
+            <h3>AWS Cloud Fundamentals · UiPath RPA Fundamentals</h3>
+            <p class="cert-date">Currently studying</p>
+            <p class="cert-learn">Cloud foundations on AWS and robotic process automation with UiPath, extending my data-platform and automation skills.</p>
+          </article>
+        </div>
 
         <h2 class="section-title sub">Education</h2>
         <p class="edu"><strong>B.Tech, Information Technology</strong><br>Prasad V. Potluri Siddhartha Institute of Technology, JNTU Kakinada · 2009 – 2013</p>
@@ -306,22 +359,58 @@
     </section>
 
     <!-- Pilot projects -->
-    <section class="section alt" id="pilot">
+    <section class="section" id="pilot">
       <div class="container narrow">
         <h2 class="section-title">Abhishek's Pilot Projects</h2>
-        <div class="pilot-cards">
-          <article class="card pilot-card">
-            <p class="card-tag">Pilot · Phase 2 completed</p>
-            <h3>Job Hunter</h3>
-            <p>A job-search assistant that finds and prioritises relevant roles. It is the early pilot of a larger product concept I plan to develop further.</p>
+        <div class="pilot-gate locked" id="pilot-gate">
+        <div class="pilot-rows" id="pilot-rows">
+          <article class="pilot-row">
+            <div class="pilot-visual pv-hunter" aria-hidden="true">
+              <svg viewBox="0 0 240 160" focusable="false">
+                <rect x="30" y="22" width="130" height="18" rx="9" fill="#fff" opacity=".95"/>
+                <rect x="30" y="52" width="150" height="18" rx="9" fill="#fff" opacity=".7"/>
+                <rect x="30" y="82" width="110" height="18" rx="9" fill="#fff" opacity=".5"/>
+                <rect x="30" y="112" width="90" height="18" rx="9" fill="#fff" opacity=".3"/>
+                <circle cx="188" cy="108" r="30" fill="none" stroke="#fff" stroke-width="9"/>
+                <path d="M210 130l22 22" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+                <circle cx="46" cy="31" r="5" fill="#ff7a59"/>
+              </svg>
+              <span class="pilot-badge">Phase 2 completed</span>
+            </div>
+            <div class="pilot-text">
+              <p class="pilot-label">Pilot · Career tech</p>
+              <h3>Job Hunter</h3>
+              <p>A job-search assistant that finds and prioritises relevant roles. It is the early pilot of a larger product concept I plan to develop further.</p>
+            </div>
           </article>
-          <article class="card pilot-card">
-            <p class="card-tag">Pilot · Phase 1</p>
-            <h3>Crypto Radar</h3>
-            <p>A read-only market radar that scans crypto markets and surfaces opportunities on a live dashboard. Paper-trading only, built as an early pilot of a larger product concept.</p>
+          <article class="pilot-row">
+            <div class="pilot-visual pv-radar" aria-hidden="true">
+              <svg viewBox="0 0 240 160" focusable="false">
+                <g fill="none" stroke="#fff" stroke-width="3" opacity=".85">
+                  <circle cx="120" cy="80" r="28"/><circle cx="120" cy="80" r="50"/><circle cx="120" cy="80" r="72" opacity=".6"/>
+                  <path d="M120 8v144M48 80h144" opacity=".45"/>
+                </g>
+                <path d="M120 80L186 38A80 80 0 0 1 200 80z" fill="#fff" opacity=".35"/>
+                <circle cx="158" cy="56" r="6" fill="#ffd166"/><circle cx="92" cy="110" r="5" fill="#fff"/><circle cx="144" cy="104" r="4" fill="#06d6a0"/>
+              </svg>
+              <span class="pilot-badge">Phase 1</span>
+            </div>
+            <div class="pilot-text">
+              <p class="pilot-label">Pilot · Markets</p>
+              <h3>Crypto Radar</h3>
+              <p>A read-only market radar that scans crypto markets and surfaces opportunities on a live dashboard. Paper-trading only, built as an early pilot of a larger product concept.</p>
+            </div>
           </article>
         </div>
-        <p class="pilot-action"><button type="button" class="btn btn-ghost" id="nda-open">Sign NDA to request details</button></p>
+        <div class="pilot-lock" id="pilot-lock">
+          <div class="pilot-lock-card">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+            <h3>Confidential pilot projects</h3>
+            <p>Please sign a short NDA to view the project details.</p>
+            <button type="button" class="btn btn-primary" id="nda-open">Sign NDA to view</button>
+          </div>
+        </div>
+        </div>
       </div>
     </section>
 
@@ -409,11 +498,43 @@
     });
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Scroll reveal: content fades in as it enters the viewport
+    (function () {
+      if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const sel = '.section-title, .help-grid li, .stats li, .intro-ask, .about-card, #about p, .cards .card, '
+        + '.pilot-row, .roadmap .role, .map-card, .skill-group, .extra-skills li, .cert-card, .clients li, .edu, .contact .lead, .contact-link';
+      const vh = window.innerHeight;
+      const targets = [...document.querySelectorAll(sel)].filter(el => el.getBoundingClientRect().top > vh * 0.92 && !el.closest('#top'));
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(en => {
+          if (!en.isIntersecting) return;
+          const el = en.target;
+          el.classList.remove('rv', 'rv-left', 'rv-right');
+          io.unobserve(el);
+          setTimeout(() => { el.classList.remove('rv-anim'); el.style.transitionDelay = ''; }, 1000);
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+      targets.forEach((el, i) => {
+        el.classList.add('rv', 'rv-anim');
+        if (el.matches('.pilot-row')) el.classList.add(([...el.parentNode.children].indexOf(el) % 2) ? 'rv-right' : 'rv-left');
+        el.style.transitionDelay = ((i % 4) * 70) + 'ms';
+        io.observe(el);
+      });
+    })();
+
     // NDA form: opens when the Pilot Projects section comes into view (once per visit)
     const nda = document.getElementById('nda');
     const pilot = document.getElementById('pilot');
     const seen = () => { try { return sessionStorage.getItem('ndaSeen') === '1'; } catch (e) { return false; } };
     const markSeen = () => { try { sessionStorage.setItem('ndaSeen', '1'); } catch (e) {} };
+    const accepted = () => { try { return localStorage.getItem('ndaOK') === '1'; } catch (e) { return false; } };
+    const unlock = () => {
+      const gate = document.getElementById('pilot-gate');
+      gate.classList.remove('locked');
+      document.getElementById('pilot-rows').removeAttribute('aria-hidden');
+      try { localStorage.setItem('ndaOK', '1'); } catch (e) {}
+    };
+    if (accepted()) unlock(); else document.getElementById('pilot-rows').setAttribute('aria-hidden', 'true');
     const openNda = () => {
       if (nda.open) return;
       document.getElementById('nda-form').hidden = false;
@@ -424,7 +545,7 @@
     if (typeof nda.showModal === 'function') {
       if ('IntersectionObserver' in window) {
         const io = new IntersectionObserver(entries => {
-          if (entries.some(en => en.isIntersecting) && !seen()) { openNda(); io.disconnect(); }
+          if (entries.some(en => en.isIntersecting) && !seen() && !accepted()) { openNda(); io.disconnect(); }
         }, { threshold: 0.4 });
         io.observe(pilot);
       }
@@ -443,6 +564,7 @@
           + '&su=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
         document.getElementById('nda-form').hidden = true;
         document.getElementById('nda-done').hidden = false;
+        unlock();
       });
       document.getElementById('nda-done-close').addEventListener('click', () => nda.close());
     }
